@@ -10,5 +10,11 @@ require('nvim-treesitter.configs').setup{
 
 require('orgmode').setup{
     org_agenda_files = {'~/org/Agenda/*'},
-    org_default_notes_file = '~/org/refile.org'
+    org_default_notes_file = '~/org/refile.org',
+    org_capture_templates = {
+        t = {
+            describe = 'Task',
+            template = '* TODO %?\n SCHEDULED: <%t>'
+        },
+    }
 }
