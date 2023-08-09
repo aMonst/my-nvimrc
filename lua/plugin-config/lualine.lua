@@ -43,13 +43,13 @@ local config = {
   },
   sections = {
     -- these are to remove the defaults
-    lualine_a = {},
-    lualine_b = {},
-    lualine_y = {},
-    lualine_z = {},
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'},
     -- These will be filled later
-    lualine_c = {require('auto-session-library').current_session_name},
-    lualine_x = {},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
   },
   inactive_sections = {
     -- these are to remove the defaults
