@@ -14,7 +14,7 @@ require('orgmode').setup{
     org_capture_templates = {
         t = {
             describe = 'Task',
-            template = '* TODO %?\n SCHEDULED: <%t>'
+            template = '* TODO %?'
         },
     }
 }
