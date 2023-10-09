@@ -16,5 +16,6 @@ require('orgmode').setup{
             describe = 'Task',
             template = '* TODO %?'
         },
-    }
+    },
+    org_todo_keywords = {'TODO', '|', 'DONE', '|', 'CANCLE', '|', 'ACKNOWLEDGED', '|', 'ASSIGNMENT'}
 }
