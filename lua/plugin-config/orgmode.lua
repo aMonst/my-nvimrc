@@ -18,5 +18,5 @@ require('orgmode').setup{
         },
     },
     -- 将要做，已知问题(暂时不做), 分配给其他人做, 已完成, 放弃
-    org_todo_keywords = {'TODO(t)', 'ACKNOWLEDGED', 'ASSIGNMENT', '|', 'DONE(d)', 'CANCLE(c)'}
+    org_todo_keywords = {'TODO(t)', 'ACKNOWLEDGED(a)', 'ASSIGNMENT(A)', '|', 'DONE(d)', 'CANCLE(c)'}
 }

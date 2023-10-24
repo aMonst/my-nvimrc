@@ -21,7 +21,7 @@ return require('packer').startup(function(use)
     use {"folke/which-key.nvim"}
     use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim', tag = '0.1.3',
         requires = { {'nvim-lua/plenary.nvim'} , {
             'nvim-treesitter/nvim-treesitter',
             run = function()
