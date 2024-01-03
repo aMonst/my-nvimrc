@@ -5,7 +5,7 @@ local on_attach = function(_, bufnr)
     lsp_set_keymap.set_keymap(bufnr)
 end
 
-require('lspconfig').sumneko_lua.setup {
+require('lspconfig').lua_ls.setup {
     settings = {
         Lua = {
             runtime = {

@@ -23,11 +23,6 @@ if vim.fn.has "nvim-0.7" then
         group = auto_indent,
         command = 'normal! gg=G``'
     })
-    --    vim.api.nvim_create_autocmd({"VimEnter"}, {
-    --        pattern = "*",
-    --        group = auto_save_session,
-    --        callback = load_session
-    --    })
 else
     vim.cmd[[
         augroup NVIMRC
