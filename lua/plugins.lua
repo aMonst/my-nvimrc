@@ -5,7 +5,7 @@ return require('packer').startup(function(use)
     -- 主题配置
     use 'folke/tokyonight.nvim'
     use 'Mofiqul/vscode.nvim'
-    use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
     use {
         'kyazdani42/nvim-tree.lua',
         requires = {
@@ -51,7 +51,7 @@ return require('packer').startup(function(use)
 
     -- dap
     use {'mfussenegger/nvim-dap'}
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
     use {"theHamsta/nvim-dap-virtual-text", requires = {"nvim-treesitter/nvim-treesitter" , "mfussenegger/nvim-dap"}}
     use {"sakhnik/nvim-gdb", run = "./install.sh"}
 
