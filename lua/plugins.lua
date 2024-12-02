@@ -7,11 +7,10 @@ return require('packer').startup(function(use)
     use 'Mofiqul/vscode.nvim'
     use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
     use {
-        'kyazdani42/nvim-tree.lua',
+        'nvim-tree/nvim-tree.lua',
         requires = {
-            'kyazdani42/nvim-web-devicons', -- optional, for file icons
+            'nvim-tree/nvim-web-devicons', -- optional
         },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
     use {
         'nvim-lualine/lualine.nvim',
