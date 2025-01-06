@@ -1,64 +1,79 @@
 -- 插件管理文件
-return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+
+-- 自动安装 lazy 插件管理器
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable",
+        lazypath,
+    })
+end
+
+vim.opt.rtp:prepend(lazypath)
+
+-- 管理插件
+return require('lazy').setup({
     -- 主题配置
-    use 'folke/tokyonight.nvim'
-    use 'Mofiqul/vscode.nvim'
-    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
-    use {
+    'folke/tokyonight.nvim',
+    'Mofiqul/vscode.nvim',
+    {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+    {
         'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons', -- optional
-        },
-    }
-    use {
+        dependencies = 'nvim-tree/nvim-web-devicons', -- optional
+    },
+    {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
-    use {'glepnir/dashboard-nvim'}
-    use {"folke/which-key.nvim"}
-    use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.3',
-        requires = { {'nvim-lua/plenary.nvim'} , {
-            'nvim-treesitter/nvim-treesitter',
-            run = function()
-                require('nvim-treesitter.install').update({ with_sync = true })
-            end,
-        }}
-    }
-    use { "nvim-telescope/telescope-file-browser.nvim" }
-    use {'rmagatti/auto-session'}
-    use {"williamboman/mason.nvim"}
-    use {"neovim/nvim-lspconfig"}
+        dependencies = 'kyazdani42/nvim-web-devicons'
+    },
+    'glepnir/dashboard-nvim',
+    'folke/which-key.nvim',
+    {'akinsho/toggleterm.nvim', version = '*', config = true},
+    {
+        'nvim-telescope/telescope.nvim', version = '0.1.8',
+        dependencies = 'nvim-lua/plenary.nvim'
+    },
+    'nvim-telescope/telescope-file-browser.nvim',
+    'rmagatti/auto-session',
+    'williamboman/mason.nvim',
+    'neovim/nvim-lspconfig',
     -- nvim-cmp
-    use {'hrsh7th/cmp-nvim-lsp'}
-    use {'hrsh7th/cmp-buffer'}
-    use {'hrsh7th/cmp-path'}
-    use {'hrsh7th/cmp-cmdline'}
-    use {'hrsh7th/nvim-cmp'}
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/nvim-cmp',
     -- vsnip
-    use {'hrsh7th/cmp-vsnip'}
-    use {'hrsh7th/vim-vsnip'}
-    use {'rafamadriz/friendly-snippets'}
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/vim-vsnip',
+    'rafamadriz/friendly-snippets',
     -- lspkind
-    use {'onsails/lspkind-nvim'}
+    'onsails/lspkind-nvim',
     -- lspsaga
-    use {'glepnir/lspsaga.nvim'}
-    use {'simrat39/symbols-outline.nvim'}
+    'glepnir/lspsaga.nvim',
+    'simrat39/symbols-outline.nvim',
 
     -- dap
-    use {'mfussenegger/nvim-dap'}
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
-    use {"theHamsta/nvim-dap-virtual-text", requires = {"nvim-treesitter/nvim-treesitter" , "mfussenegger/nvim-dap"}}
-    use {"sakhnik/nvim-gdb", run = "./install.sh"}
+    'mfussenegger/nvim-dap',
+    { 'rcarriga/nvim-dap-ui', dependencies = {'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio'}},
+    {'theHamsta/nvim-dap-virtual-text', dependencies = {'nvim-treesitter/nvim-treesitter' , 'mfussenegger/nvim-dap'}},
+    {
+        'sakhnik/nvim-gdb', 
+        lazy=false,
+        config = function()
+            vim.g.nvimgdb_use_cmake_to_find_executables = 1
+        end
+    },
 
     --git
-    use {'lewis6991/gitsigns.nvim'}
-    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+    'lewis6991/gitsigns.nvim',
+    {'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim'},
 
     --org mode
-    use {'nvim-orgmode/orgmode'}
-end)
+    'nvim-orgmode/orgmode',
+})
 

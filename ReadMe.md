@@ -10,15 +10,6 @@
 git clone https://github.com/aMonst/my-nvimrc.git ~/.config/nvim
 ```
 
-2. 安装packer 插件，用于后续做插件管理
-```shell
-git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-~/.local/share/nvim/site/pack/packer/start/packer.nvim
-```
+2. 插件管理器更新为lazy,而且可以自动安装，现无需任何额外操作
 
-3. 打开Nvim，并使用命令安装对应插件
-```shell
-:PackerInstall
-```
-
-4. 安装gcc以便激活treesitter
+3. 安装gcc以便激活treesitter
