@@ -30,7 +30,7 @@ return require('lazy').setup({
         'nvim-lualine/lualine.nvim',
         dependencies = 'kyazdani42/nvim-web-devicons'
     },
-    'glepnir/dashboard-nvim',
+    {'glepnir/dashboard-nvim', event = 'VimEnter', dependencies = {{'nvim-tree/nvim-web-devicons'}}},
     'folke/which-key.nvim',
     {'akinsho/toggleterm.nvim', version = '*', config = true},
     {
@@ -75,5 +75,7 @@ return require('lazy').setup({
 
     --org mode
     'nvim-orgmode/orgmode',
+    -- cmake-tools
+    {'Civitasv/cmake-tools.nvim', dependencies = 'nvim-lua/plenary.nvim'}
 })
 

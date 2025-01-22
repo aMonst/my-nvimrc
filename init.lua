@@ -22,6 +22,7 @@ require("plugin-config/dap-ui")
 require('plugin-config/nvimgdb')
 require('plugin-config/gitsigns')
 require('plugin-config/orgmode')
+require('plugin-config/cmaketools')
 
 -- 启用主题
 vim.cmd[[colorscheme tokyonight]]
