@@ -39,7 +39,12 @@ return require('lazy').setup({
     },
     'nvim-telescope/telescope-file-browser.nvim',
     'rmagatti/auto-session',
-    'williamboman/mason.nvim',
+    {'williamboman/mason.nvim', 
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+            "jay-babu/mason-nvim-dap.nvim", -- DAP支持
+        }
+    },
     'neovim/nvim-lspconfig',
     -- nvim-cmp
     'hrsh7th/cmp-nvim-lsp',
